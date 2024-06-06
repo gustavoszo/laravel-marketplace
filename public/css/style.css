@@ -1,0 +1,52 @@
+body {
+    font-family: 'Roboto';
+}
+
+/* navbar */
+.logged-user {
+    cursor: default;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+/* index */
+.btn-new {
+    margin-bottom: 10px;
+}
+
+/* create */
+.btn-confirm {
+    margin-top: 10px;
+}
+
+.checkbox-padding {
+    margin-top: 10px;
+}
+
+
+
+/* front */
+/* nav */
+.badge {
+    font-size: 10px;
+    padding: 1px 6px;
+}
+
+/* product-single */
+.main-img{
+    height: 650px;
+}
+
+/* cart index */
+.no-cart {
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+.btn-buy {
+    float: right;
+}
+
+/* checkout index */
