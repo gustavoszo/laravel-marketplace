@@ -28,15 +28,42 @@ body {
 
 
 /* front */
+.card-img-top {
+    max-height: 300px;
+}
+
+/* welcome */
+.link-category li:hover {
+    background-color: #666363;
+    color:white;
+}
+
 /* nav */
+.nav-padding {
+    padding: 10px 0px 0px 0px;
+}
+
+.stores-padding {
+    padding: 8px 0px 0px 0px;
+}
+
+.stores-padding a {
+    text-decoration: none;
+}
+
 .badge {
     font-size: 10px;
     padding: 1px 6px;
 }
 
 /* product-single */
-.main-img{
+.thumb-img{
     height: 650px;
+    cursor: pointer;
+}
+
+.small-img {
+    cursor: pointer;
 }
 
 /* cart index */
@@ -50,3 +77,4 @@ body {
 }
 
 /* checkout index */
+

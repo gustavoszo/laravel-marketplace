@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Store;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,5 +30,12 @@ class AppServiceProvider extends ServiceProvider
 
         $categories = Category::all(['name', 'slug']);
         view()->share('categoriesMenu', $categories);
+
+        $stores = Store::all(['name', 'slug']);
+        view()->share('storesMenu', $stores);
+
+        // view()->composer('*', function($view) use($categories) {
+        //     $view->with('categories', $categories);
+        // });
     }
 }

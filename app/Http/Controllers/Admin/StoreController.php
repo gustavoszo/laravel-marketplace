@@ -77,6 +77,13 @@ class StoreController extends Controller
     public function destroy($id) {
         
         $store = Store::find($id);
+
+        $products = $store->products;
+
+        foreach($products as $product) {
+            $product->delete();
+        }
+
         $store->delete();
 
         return redirect()->route('admin.stores.index')->with('warning', 'Loja deletada com sucesso');

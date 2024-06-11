@@ -15,7 +15,7 @@
         </div>
         @enderror
     </div>
-    <div class="form-group">
+    <div class="form-group mt-2">
         <label>Descrição</label>
         <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{ old('description') }}">
 
@@ -25,7 +25,7 @@
         </div>
         @enderror
     </div>
-    <div class="form-group">
+    <div class="form-group mt-2">
         <label>Informaçoes</label>
         <textarea name="body" cols="30" rows="10" class="form-control @error('body') is-invalid @enderror" value="{{ old('body') }}"></textarea>
 
@@ -35,9 +35,9 @@
         </div>
         @enderror
     </div>
-    <div class="form-group">
+    <div class="form-group mt-2">
         <label>Preço</label>
-        <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
+        <input type="text" name="price" id="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
 
         @error('price')
         <div class="invalid-feedback">
@@ -68,4 +68,13 @@
         <input type="submit" class="btn btn-success btn-confirm" value="Cadastrar">
     </div>
 </form>
+@endsection
+
+@section('scripts')
+
+<script src="https://cdn.jsdelivr.net/gh/plentz/jquery-maskmoney@master/dist/jquery.maskMoney.min.js"></script>
+<script>
+    $('#price').maskMoney({prefix: 'R$ ', allowNegative: false, thousands: '.', decimal: ','});
+</script>
+
 @endsection

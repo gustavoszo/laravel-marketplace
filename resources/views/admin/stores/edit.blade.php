@@ -9,18 +9,42 @@
     <div class="form-group">
         <label>Nome</label>
         <input type="text" name="name" class="form-control @error('phone') is-invalid @enderror" value="{{$store->name}}">
+
+        @error('name')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
-    <div class="form-group">
-        <label>Description</label>
-        <input type="text" name="description" class="form-control" value="{{$store->description}}">
+    <div class="form-group mt-2">
+        <label>Descrição da loja</label>
+        <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{$store->description}}">
+
+        @error('description')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
-    <div class="form-group">
+    <div class="form-group mt-2">
         <label>Telefone</label>
-        <input type="text" name="phone" class="form-control" value="{{$store->phone}}">
+        <input type="text" name="phone" class="form-control mt-2  @error('phone') is-invalid @enderror" value="{{$store->phone}}">
+
+        @error('phone')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
-    <div class="form-group">
+    <div class="form-group mt-2">
         <label>Celular</label>
-        <input type="text" name="mobile_phone" class="form-control" value="{{$store->mobile_phone}}">
+        <input type="text" name="mobile_phone" id="mobile_phone" class="form-control @error('mobile_phone') is-invalid @enderror" value="{{$store->mobile_phone}}">
+
+        @error('mobile_phone')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
     <div class="form-group checkbox-padding">
         <p>
@@ -40,4 +64,17 @@
         <input type="submit" class="btn btn-success btn-confirm" value="Atualizar">
     </div>
 </form>
+@endsection
+
+
+@section('scripts')
+
+<!-- dependencia para mascara de telefone -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+        $(document).ready(function(){
+            $('#mobile_phone').mask('(00) 00000-0000');
+        });
+</script>
+
 @endsection

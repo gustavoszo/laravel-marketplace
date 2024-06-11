@@ -4,18 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use App\Traits\Slug;
 
 class Product extends Model
 {
+
+    use Slug;
     use HasFactory;
 
     protected $fillable = ['name', 'description', 'body', 'price', 'slug'];
 
-    public function setNameAttribute($value)
+    // Accessor
+    // $product->thumb
+    public function getThumbAttribute()
     {
-        $this->attributes['name'] = $value;
-        $this->attributes['slug'] = Str::slug($value, '-');
+        return $this->photos->first()->image;
     }
     
     public function store() 

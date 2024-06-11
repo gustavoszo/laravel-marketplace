@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         // Registrar middleware mas não aplicá-lo globalmente
-        $middleware->alias(['user.has.store'=> \App\Http\Middleware\UserHasStoreMiddleware::class]);
+        $middleware->alias(['user.has.store'=> \App\Http\Middleware\UserHasStoreMiddleware::class, 'user.is.owner'=> \App\Http\Middleware\UserHasRoleOwner::class]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

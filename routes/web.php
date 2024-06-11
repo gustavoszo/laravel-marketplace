@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('', [HomeController::class, 'index'])->name('home');
 Route::get('/product/{slug}', [HomeController::class, 'single'])->name('product.single');
 
+Route::get('/category/{slug}', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.single');
+Route::get('/store/{slug}', [App\Http\Controllers\StoreController::class, 'index'])->name('store.single');
+
 Route::prefix('cart')->name('cart.')->group(function() {
     
     Route::get('', [CartController::class, 'index'])->name('index');
@@ -30,7 +33,7 @@ Route::prefix('checkout')->name('checkout.')->group(function() {
 
 });
 
-Route::group(['middleware'=> ['auth']], function() {
+Route::group(['middleware'=> ['auth', 'user.is.owner']], function() {
 
     Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
 

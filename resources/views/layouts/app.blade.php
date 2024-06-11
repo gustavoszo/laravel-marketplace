@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('admin.stores.index') }}">Lojas</a>
+              <a class="nav-link" href="{{ route('admin.stores.index') }}">Loja</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ route('admin.products.index') }}">Produtos</a>
@@ -64,5 +64,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/js/index.js"></script>
     <script src="/js/script.js"></script>
+    @yield('scripts')
 </body>
 </html>

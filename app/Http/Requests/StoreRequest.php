@@ -25,8 +25,8 @@ class StoreRequest extends FormRequest
             'name'=> 'required',
             'description'=> 'required|min:10',
             'phone'=> 'required',
-            'mobile_phone'=> 'required',
-            'logo'=> 'image',
+            'mobile_phone'=> 'required|regex:/^\(\d{2}\) \d{5}-\d{4}$/',
+            'logo'=> 'required|image',
         ];
     }
 
@@ -37,6 +37,7 @@ class StoreRequest extends FormRequest
             'required'=> 'Este campo é obrigatório',
             'min'=> 'O campo deve ter no mínimo :min caracteres',
             'image'=> 'O arquivo deve conter uma imagem válida',
+            'regex'=> 'Número de telefone inválido',
         ];
 
     }

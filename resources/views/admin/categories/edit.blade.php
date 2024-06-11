@@ -16,7 +16,7 @@
         </div>
         @enderror
     </div>
-    <div class="form-group">
+    <div class="form-group mt-2">
         <label>Descrição</label>
         <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{ $category->description }}">
 

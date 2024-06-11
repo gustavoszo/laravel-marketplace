@@ -18,12 +18,15 @@
   </ul>
 </div>
 
+<h2 class="mt-4">{{ $category->name }}</h2>
+<hr>
 <div class="row">
-@foreach($products as $product)
+
+@forelse($category->products as $product)
     <div class="col-4">
         <div class="card mb-4" style="width: 98%">
             @if($product->photos->count())
-            <img src="{{ asset('storage/'. $product->thumb) }}" class="card-img-top" alt="Imagem do produto {{ $product->name }}">
+            <img src="{{ asset('storage/'. $product->photos->first()->image) }}" class="card-img-top" alt="Imagem do produto {{ $product->name }}">
             @else
             <img src="{{ asset('assets/img/produto-sem-imagem.png')}}" class="card-img-top" alt="Imagem do produto {{ $product->name }}">
             @endif
@@ -35,9 +38,10 @@
             </div>
         </div>
     </div>
-@endforeach
+@empty
+    <div class="col-12 alert alert-warning">Nenhum produto encontrado para essa categoria</div>
+@endforelse
 
-{{ $products->links() }}
 </div>
-    
+
 @endsection
